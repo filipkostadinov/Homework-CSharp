@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeworkConsoleApp1", "HomeworkConsoleApp1\HomeworkConsoleApp1.csproj", "{E8D73862-6875-4C5C-BAD7-D4125B18AD8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealCalculatorConsoleApp1", "HomeworkConsoleApp1\RealCalculatorConsoleApp1.csproj", "{E8D73862-6875-4C5C-BAD7-D4125B18AD8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
