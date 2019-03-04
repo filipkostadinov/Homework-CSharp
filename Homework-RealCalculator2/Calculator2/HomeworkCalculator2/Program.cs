@@ -39,18 +39,18 @@ namespace HomeworkCalculator2
                                 result = firstNum * secondNum;
                                 break;
                             case "/":
-                                if (secondNum == 0)
-                                {
-                                    Console.WriteLine("you can not divide with zero");
-                                    break;
-                                }
                                 result = firstNum / Convert.ToDouble(secondNum);
                                 break;
                         }
-                        Console.WriteLine("result is: " + result);
-                        Array.Resize(ref arr, arr.Length + 1);
-                        arr[a] = Convert.ToString(firstNum) + operation + Convert.ToString(secondNum) + "=" + result;
-                        a++;
+                        if (secondNum == 0 && operation == "/")
+                            Console.WriteLine("you can not divide with zero");
+                        else
+                        {
+                            Console.WriteLine("result is: " + result);
+                            Array.Resize(ref arr, arr.Length + 1);
+                            arr[a] = Convert.ToString(firstNum) + operation + Convert.ToString(secondNum) + "=" + result;
+                            a++;
+                        }
 
                         Console.WriteLine("Do you want another calculation? enter Y/N");
                         if (Console.ReadLine().ToLower() == "n")
@@ -70,7 +70,6 @@ namespace HomeworkCalculator2
                 else
                     Console.WriteLine("You entered unvalid operation! Please try again");
             }
-            Console.ReadLine();
         }
     }
 }
