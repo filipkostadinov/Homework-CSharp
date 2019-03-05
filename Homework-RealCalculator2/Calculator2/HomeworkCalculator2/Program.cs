@@ -12,7 +12,8 @@ namespace HomeworkCalculator2
         {
             string[] arr = new string[0];
             int a = 0;
-            while (true)
+            bool temp = true;
+            while (temp)
             {
                 Console.WriteLine("Enter the operation: ");
                 string operation = Console.ReadLine();
@@ -44,6 +45,7 @@ namespace HomeworkCalculator2
                         }
                         if (secondNum == 0 && operation == "/")
                             Console.WriteLine("you can not divide with zero");
+
                         else
                         {
                             Console.WriteLine("result is: " + result);
@@ -51,18 +53,27 @@ namespace HomeworkCalculator2
                             arr[a] = Convert.ToString(firstNum) + operation + Convert.ToString(secondNum) + "=" + result;
                             a++;
                         }
-
-                        Console.WriteLine("Do you want another calculation? enter Y/N");
-                        if (Console.ReadLine().ToLower() == "n")
+                        while (true)
                         {
-                            Console.WriteLine("Calculation history");
-                            foreach (var item in arr)
+                            Console.WriteLine("Do you want another calculation? enter Y/N");
+                            string anotherCalc = Console.ReadLine();
+                            if (anotherCalc.ToLower() == "n")
                             {
-                                Console.WriteLine(item);
+                                Console.WriteLine("Calculation history");
+                                foreach (var item in arr)
+                                {
+                                    Console.WriteLine(item);
+                                }
+                                Console.ReadLine();
+                                temp = false;
+                                break;
                             }
-                            Console.ReadLine();
-                            break;
+                            else if (anotherCalc.ToLower() == "y")
+                            {
+                                break;
+                            }
                         }
+
                     }
                     else
                         Console.WriteLine("you entered invalid numbers, please try again");
