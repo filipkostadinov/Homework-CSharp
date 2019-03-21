@@ -45,7 +45,6 @@ namespace HomeworkCalculator2
                         }
                         if (secondNum == 0 && operation == "/")
                             Console.WriteLine("you can not divide with zero");
-
                         else
                         {
                             Console.WriteLine("result is: " + result);
@@ -73,7 +72,6 @@ namespace HomeworkCalculator2
                                 break;
                             }
                         }
-
                     }
                     else
                         Console.WriteLine("you entered invalid numbers, please try again");
