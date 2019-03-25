@@ -18,16 +18,13 @@ namespace ClassLibrary1
             Title = title;
             Genre = genre;
 
-            try
+            if (rating >= 1 && rating <= 5)
             {
-                if (rating >= 1 && rating <= 5)
-                    Rating = rating;
-                else
-                    throw new Exception();
+                Rating = rating;
             }
-            catch (Exception)
+            else
             {
-                Console.WriteLine($"Rating for {Title} should be a number from 1 to 5");
+                throw new Exception($"Rating for {Title} should be a number from 1 to 5");
             }
 
             TicketPrice = Rating * 5;

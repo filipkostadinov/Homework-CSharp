@@ -19,7 +19,7 @@ namespace ConsoleApp1
         }
         static void Main(string[] args)
         {
-            Movie movie1 = new Movie("Scary Movie", Genre.Comedy, 3.6);
+            Movie movie1 = new Movie("Scary Movie", Genre.Comedy, 6.6);
             Movie movie2 = new Movie("American Pie", Genre.Comedy, 2.5);
             Movie movie3 = new Movie("Saw", Genre.Horror, 1.9);
             Movie movie4 = new Movie("The Shining", Genre.Horror, 4.3);
