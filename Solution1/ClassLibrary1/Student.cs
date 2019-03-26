@@ -9,7 +9,7 @@ namespace ClassLibrary1
     public class Student : User
     {
         public Subject CurrentSubject { get; set; }
-        public List<Subject> Subjects { get; set; } = new List<Subject>();
+        public List<Subject> Subjects { get; set; }
 
         public Student(string username, string password)
         {
