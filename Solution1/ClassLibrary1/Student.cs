@@ -9,7 +9,7 @@ namespace ClassLibrary1
     public class Student : User
     {
         public Subject CurrentSubject { get; set; }
-        public List<Subject> Subjects { get; set; }
+        public Dictionary<Subject, int> Grades { get; set; }
 
         public Student(string username, string password)
         {
@@ -20,9 +20,9 @@ namespace ClassLibrary1
 
         public void SubjectListen()
         {
-            foreach (var item in Subjects)
+            foreach (var item in Grades)
             {
-                Console.WriteLine($"Subject: {item.Name} Grade: {item.Grade}");
+                Console.WriteLine($"Subject: {item.Key.Name} Grade: {item.Value}");
             }
         }
     }
