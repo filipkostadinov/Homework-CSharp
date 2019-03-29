@@ -14,17 +14,5 @@ namespace ClassLibrary1
             Password = password;
             Role = Role.Admin;
         }
-
-        //public void AddUser(User user, List<User> users)
-        //{
-        //    if (Username == user.Username)
-        //        users.Add(user);
-        //}
-
-        //public void RemoveUser(User user, List<User> users)
-        //{
-        //    if (Username == user.Username)
-        //        users.Remove(user);
-        //}
     }
 }

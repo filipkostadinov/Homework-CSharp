@@ -18,13 +18,12 @@ namespace ConsoleApp
             Console.WriteLine("Buyer info 1. Firstname 2. Lastname 3. Date of birth(day.month.year)");
             Person person = new Person(Console.ReadLine(), Console.ReadLine(), DateTime.Parse(Console.ReadLine()), true);
             Console.WriteLine(person.DateOfBirth);
-            Console.WriteLine("Cashier info 1. Firstname 2. Lastname 3. Date of birth(day.month.year)");
-            Person cashier = new Person(Console.ReadLine(), Console.ReadLine(), DateTime.Parse(Console.ReadLine()), false);
+            Console.WriteLine("Cashier info 1. Firstname 2. Lastname");
+            Person cashier = new Person(Console.ReadLine(), Console.ReadLine(), new DateTime(1990, 01, 01), false);
 
             Cart cart = new Cart();
             Product[] listOfProducts = cart.ListOfProduct;
 
-            Console.WriteLine("Products: ");
             var products = new Product[]
             {
                 new Product("Milk", 4.2),
@@ -37,13 +36,16 @@ namespace ConsoleApp
                 new Product("Beer", 5) { Declaration = "+18"}
             };
 
-            foreach (var item in products)
-            {
-                Console.WriteLine(item.Name);
-            }
+
 
             while (true)
             {
+                Console.Clear();
+                Console.WriteLine("Products: ");
+                foreach (var item in products)
+                {
+                    Console.WriteLine(item.Name);
+                }
                 Console.WriteLine("Do you want anything to buy? input: y/n");
                 string input = Console.ReadLine().ToLower();
                 if (input == "y")
@@ -67,6 +69,7 @@ namespace ConsoleApp
                 else
                 {
                     Console.WriteLine("please input y/n");
+                    Console.ReadLine();
                 }
             }
 
@@ -83,41 +86,39 @@ namespace ConsoleApp
                 {
                     Console.Write(item.Name + ", ");
                 }
+                Console.WriteLine();
 
-                if (ProductValidation(cart.ListOfProduct))
+                int personYear = AgeCalculator(person);
+                if (ProductValidation(cart.ListOfProduct) && personYear < 18)
                 {
-                    int personYear = AgeCalculator(person);
-                    if (personYear < 18)
-                        Console.WriteLine("You need +18 for these products");
+                    Console.WriteLine("You need +18 for these products");
+                }
+                else
+                {
+                    Console.WriteLine("Please pay the check");
+                    double check = Check(cart.ListOfProduct);
+
+                    if (check > 50)
+                    {
+                        Console.WriteLine("You have discount 10%");
+                        check -= check * 0.1;
+
+                        if (person.LoyalCard)
+                        {
+                            Console.WriteLine("You have discount 15%");
+                            check -= check * 0.15;
+                        }
+                    }
                     else
                     {
-                        Console.WriteLine("Please pay the check");
-                        double check = Check(cart.ListOfProduct);
-
-                        if (check > 50)
+                        if (person.LoyalCard)
                         {
-                            Console.WriteLine("You have discount 10%");
-                            check -= check * 0.1;
-
-                            if (person.LoyalCard)
-                            {
-                                Console.WriteLine("You have discount 15%");
-                                check -= check * 0.15;
-                            }
+                            Console.WriteLine("You have discount 15%");
+                            check -= check * 0.15;
                         }
-                        else
-                        {
-                            if (person.LoyalCard)
-                            {
-                                Console.WriteLine("You have discount 15%");
-                                check -= check * 0.15;
-                            }
-                        }
-
-                        Console.WriteLine($"The check is {check} $");
                     }
-
-                }
+                    Console.WriteLine($"The check is {check} $");
+                }                
             }
         }
 

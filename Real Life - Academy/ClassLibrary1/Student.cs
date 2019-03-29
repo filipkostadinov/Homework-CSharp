@@ -17,13 +17,5 @@ namespace ClassLibrary1
             Password = password;
             Role = Role.Student;
         }
-
-        public void SubjectListen()
-        {
-            foreach (var item in Grades)
-            {
-                Console.WriteLine($"Subject: {item.Key.Name} Grade: {item.Value}");
-            }
-        }
     }
 }
